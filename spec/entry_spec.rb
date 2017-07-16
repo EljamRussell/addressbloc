@@ -28,10 +28,12 @@ require_relative '../models/entry'
        expect(entry.email).to eq('augusta.king@lovelace.com')
      end
    end
+   # separate describe block for to_s test #to_s indicates instance method
    describe "#to_s" do
      it "prints an entry as a string" do
        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
        expected_string = "Name: Ada Lovelace\nPhone Number: 010.012.1815\nEmail: augusta.king@lovelace.com"
+       # use eq to check that to_s returns a string equal to expected
        expect(entry.to_s).to eq(expected_string)
      end
    end
