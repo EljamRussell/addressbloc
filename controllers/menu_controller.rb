@@ -91,17 +91,17 @@ require_relative '../models/address_book'
       system "clear"
       puts "No CSV file read"
       main_menu
- end
+    end
 
- begin
+    begin
       entry_count = address_book.import_from_csv(file_name).count
       system "clear"
       puts "#{entry_count} new entries added from #{file_name}"
     rescue
       puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
       read_csv
+    end
    end
-end
 
    def entry_submenu(entry)
      # #16
@@ -129,3 +129,4 @@ end
          entry_submenu(entry)
      end
    end
+end
