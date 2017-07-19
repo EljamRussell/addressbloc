@@ -30,7 +30,17 @@ class AddressBook
     end
   end
 
-  # Search AddressBook for a specific entry by name
+  def iterative_search(name)
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+
+    return nil
+  end
+
+  # Search AdressBook for a specific entry by name
   # use var lower to save the index of the leftmost item in array
   def binary_search(name)
     lower = 0
