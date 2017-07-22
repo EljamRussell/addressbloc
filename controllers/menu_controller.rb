@@ -15,7 +15,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - Delete all entries"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     # retrieve user input from the command line with gets
@@ -40,6 +41,10 @@ class MenuController
       read_csv
       main_menu
     when 5
+      system "clear"
+      demolish_all
+      main_menu
+    when 6
       puts "Good-bye!"
       # terminate program using exit(0)
       exit(0)
@@ -100,6 +105,12 @@ class MenuController
     else
       puts "No match found for #{name}"
     end
+  end
+
+  def demolish_all
+      #assignment 9 menu option to delete all entries.  demolish_all
+      address_book.entries.clear
+      puts "All entries deleted"
   end
 
   def read_csv
